@@ -12,6 +12,28 @@
   />
 </head>
 <body>
+    <script>
+        function addTodo() {
+          const inputValue = document.getElementById("input").value;
+    
+          // Create new list item
+          let newElement = document.createElement("li");
+          newElement.classList.add("list-group-item");
+          newElement.innerHTML = `
+            ${inputValue}
+            <button class="btn btn-danger btn-sm float-end" onclick="deleteTodo(this)">Delete</button>
+          `;
+    
+          let listElement = document.getElementById("listtodo");
+          listElement.appendChild(newElement);
+    
+          document.getElementById("input").value = "";
+        }
+    
+        function deleteTodo(element) {
+          element.parentElement.remove();
+        }
+      </script>
   <div class="container">
     <h1 class="my-3"><center>My to-do</center></h1>
     <div class="row">
@@ -54,28 +76,5 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
   ></script>
-
-  <script>
-    function addTodo() {
-      const inputValue = document.getElementById("input").value;
-
-      // Create new list item
-      let newElement = document.createElement("li");
-      newElement.classList.add("list-group-item");
-      newElement.innerHTML = `
-        ${inputValue}
-        <button class="btn btn-danger btn-sm float-end" onclick="deleteTodo(this)">Delete</button>
-      `;
-
-      let listElement = document.getElementById("listtodo");
-      listElement.appendChild(newElement);
-
-      document.getElementById("input").value = "";
-    }
-
-    function deleteTodo(element) {
-      element.parentElement.remove();
-    }
-  </script>
 </body>
 </html>
